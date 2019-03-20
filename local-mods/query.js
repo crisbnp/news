@@ -15,10 +15,18 @@ const newsQuery = (search, callback) => {
             // articles.map((article) =>{
             //     console.log(article)
             // })
-            articles.map((article) => {
-                callback(undefined, `${article.urlToImage}\nNews: ${article.title}\nBy ${article.author}\n${article.description}`)
+            const results = articles.map((article) => {
+                return {
+                    title: article.title,
+                    author: article.author,
+                    description: article.description,
+                    imageURL: article.urlToImage,
+                    articleURL: article.url
+                }
              })
-            
+
+             callback(undefined, results)
+  
         }
     }
 )
